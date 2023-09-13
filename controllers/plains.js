@@ -11,6 +11,24 @@ const getPlanes = async (req, res) => {
   }
 }
 
+const createPlane = async (req, res) => {
+  try {
+     const {name, price, description, capacity} = req.body
+     const plane = await Plane.create({
+      name,
+      price,
+      description,
+      capacity
+    })
+
+    res.status(201).json(plane)
+  } catch (error) {
+    res
+      .status(500)
+      .json({message: 'Не вдалося творити літак, повторіть спробу'})
+  }
+}
+
 module.exports = {
   getPlanes
 }
