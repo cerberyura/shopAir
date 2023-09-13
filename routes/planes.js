@@ -1,12 +1,11 @@
 const express = require('express')
-
 const router = express.Router()
-
 const path = require('path')
+const {getPlanes} = require("../controllers/plains");
 
 //@route GET /api/planes
 //@des Отримати всі літаки
-router.get('/', (req,res) => res.send('Get All planes'))
+router.get('/', getPlanes)
 
 //@route GET /api/planes/:id
 //@des Отримати контретний літак по id
