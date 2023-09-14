@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const path = require('path')
-const {getPlanes, createPlane} = require("../controllers/plains");
+const {getPlanes, createPlane, getPlane} = require("../controllers/plains");
 const multer = require('multer')
 
 //показуємо де зберігати завантажені файли
@@ -21,7 +21,7 @@ router.get('/', getPlanes)
 
 //@route GET /api/planes/:id
 //@des Отримати контретний літак по id
-router.get('/:id', (req,res) => res.send('Get single planes'))
+router.get('/:id', getPlane)
 
 //@route POST /api/planes
 //@des Створити літак

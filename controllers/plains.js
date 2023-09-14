@@ -1,5 +1,6 @@
 const Plane = require('../models/plane')
 
+//отримати всі літаки
 const getPlanes = async (req, res) => {
   try {
     const planes = await Plane.find()
@@ -11,6 +12,19 @@ const getPlanes = async (req, res) => {
   }
 }
 
+//отримати літак по id
+const getPlane = async (req, res) => {
+  try {
+    const plane = await Plane.find({_id: req.params.id})
+    res.status(200).json(plane)
+  } catch (error){
+    res
+      .status(400)
+      .json({message: 'Не вдалося отримати літак по id'})
+  }
+}
+
+//створити літак
 const createPlane = async (req, res) => {
   const errors = {}
 
@@ -64,7 +78,11 @@ const createPlane = async (req, res) => {
   }
 }
 
+
+
+
 module.exports = {
   getPlanes,
-  createPlane
+  createPlane,
+  getPlane
 }
