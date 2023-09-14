@@ -13,22 +13,24 @@ const getPlanes = async (req, res) => {
 
 const createPlane = async (req, res) => {
   try {
-     const {name, price, description, capacity} = req.body
-     const plane = await Plane.create({
+    const {name, price, description, capacity} = req.body
+    const plane = await Plane.create({
       name,
       price,
       description,
-      capacity
+      capacity,
+      planeImage: `http://localhost:${process.env.PORT}/static/${req.file.filename}`
     })
 
     res.status(201).json(plane)
   } catch (error) {
     res
       .status(500)
-      .json({message: 'Не вдалося творити літак, повторіть спробу'})
+      .json({message: 'Не вдалося cтворити літак, повторіть спробу'})
   }
 }
 
 module.exports = {
-  getPlanes
+  getPlanes,
+  createPlane
 }

@@ -1,7 +1,19 @@
 const express = require('express')
 const router = express.Router()
 const path = require('path')
-const {getPlanes} = require("../controllers/plains");
+const {getPlanes, createPlane} = require("../controllers/plains");
+const multer = require('multer')
+
+//показуємо де зберігати завантажені файли
+const storage = multer.diskStorage({
+  destination: './assets/',
+  filename: (req, file, cb) => {
+    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+  }
+})
+
+const upload = multer({ storage })
+
 
 //@route GET /api/planes
 //@des Отримати всі літаки
@@ -13,6 +25,7 @@ router.get('/:id', (req,res) => res.send('Get single planes'))
 
 //@route POST /api/planes
 //@des Створити літак
-router.post('/', (req,res) => res.send('Create plane'))
+router.post("/", upload.single('planeImage'), createPlane);
+
 
 module.exports = router
