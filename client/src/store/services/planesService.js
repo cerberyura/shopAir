@@ -6,10 +6,8 @@ const getPlanes = async () => {
   return planes.data
 }
 
-const  planesService = () => {
-  return(
-    getPlanes()
-  )
+const  planesService = {
+    getPlanes,
 }
 
 export default planesService

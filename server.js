@@ -1,9 +1,10 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
+const cors = require('cors');
 require('dotenv').config()
 const port = process.env.PORT || 5000
-
+app.use(cors({ origin: 'http://localhost:3000' }));
 // для парсинга application/json
  app.use(express.json())
 // для парсинга application/x-www-form-urlencoded
