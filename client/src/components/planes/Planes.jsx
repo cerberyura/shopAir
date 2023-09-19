@@ -3,6 +3,10 @@ import {useDispatch, useSelector} from "react-redux";
 import {getPlanes} from "../../store/planes/planesSlice";
 import {Spinner} from "../spinner";
 import {ContentWrapper} from "../content-wrapper/content-wrapper";
+import {PlaneItem} from "../PlaneItem";
+import styles from './styles.module.scss'
+import {Link} from "react-router-dom";
+import {Path} from "../../Path";
 
 
 export const Planes = () => {
@@ -20,8 +24,18 @@ export const Planes = () => {
   return(
     <>
       <div>
-        <ContentWrapper>
-          {planes && planes.map(plane => plane.name)}
+        {/*<div className={styles.sort}>*/}
+        {/*  <ContentWrapper>*/}
+        {/*    <button>*/}
+        {/*      Фільтрувати по ціні*/}
+        {/*    </button>*/}
+        {/*    <Link to={Path.createPlane}>*/}
+        {/*      Добавити літак*/}
+        {/*    </Link>*/}
+        {/*  </ContentWrapper>*/}
+        {/*</div>*/}
+        <ContentWrapper className={styles.planesGrid}>
+          {planes && planes.map(plane => <PlaneItem key={plane._id} {...plane} />)}
         </ContentWrapper>
       </div>
     </>
