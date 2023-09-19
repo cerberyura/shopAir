@@ -7,6 +7,7 @@ import {PlaneItem} from "../PlaneItem";
 import styles from './styles.module.scss'
 import {Link} from "react-router-dom";
 import {Path} from "../../Path";
+import {Button} from "../button";
 
 
 export const Planes = () => {
@@ -26,9 +27,9 @@ export const Planes = () => {
       <div>
         <div className={styles.sort}>
           <ContentWrapper className={styles.planesHeader}>
-            <button className={styles.sortBtn}>
+            <Button className={styles.sortBtn}>
               Фільтрувати по ціні
-            </button>
+            </Button>
             <Link
               to={Path.createPlane}
               className={styles.createPlaneBtn}>
