@@ -24,16 +24,18 @@ export const Planes = () => {
   return(
     <>
       <div>
-        {/*<div className={styles.sort}>*/}
-        {/*  <ContentWrapper>*/}
-        {/*    <button>*/}
-        {/*      Фільтрувати по ціні*/}
-        {/*    </button>*/}
-        {/*    <Link to={Path.createPlane}>*/}
-        {/*      Добавити літак*/}
-        {/*    </Link>*/}
-        {/*  </ContentWrapper>*/}
-        {/*</div>*/}
+        <div className={styles.sort}>
+          <ContentWrapper className={styles.planesHeader}>
+            <button className={styles.sortBtn}>
+              Фільтрувати по ціні
+            </button>
+            <Link
+              to={Path.createPlane}
+              className={styles.createPlaneBtn}>
+              Добавити літак
+            </Link>
+          </ContentWrapper>
+        </div>
         <ContentWrapper className={styles.planesGrid}>
           {planes && planes.map(plane => <PlaneItem key={plane._id} {...plane} />)}
         </ContentWrapper>
