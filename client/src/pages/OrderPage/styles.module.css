@@ -1,0 +1,13 @@
+.order {
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  margin-top: 50px;
+}
+
+/*# sourceMappingURL=styles.module.css.map */
